@@ -11,7 +11,7 @@ import { computeStatus } from './Game.utils';
 export default function Game() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { squares, currentPlayer } = useSelector((state) => state.game);
+    const { squares, currentPlayer, player1, player2 } = useSelector((state) => state.game);
 
     const handleClick = (i) => {
         if (!currentPlayer) {
@@ -26,7 +26,7 @@ export default function Game() {
         navigate(paths.startGame);
     };
 
-    const status = computeStatus(squares, currentPlayer);
+    const status = computeStatus(squares, currentPlayer, player1, player2);
     return (
         <GameContainer>
             <GameStatus>{status}</GameStatus>
